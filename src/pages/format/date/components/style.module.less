@@ -1,0 +1,24 @@
+.component {
+  &-result {
+    width: 100%;
+    box-sizing: border-box;
+    height: 32px;
+    line-height: 32px;
+    border-bottom: var(--border);
+
+    &-copy {
+      color: var(--primary);
+      font-size: 12px;
+      margin-left: 4px;
+    }
+
+    &.show-placeholder {
+      color: var(--placeholder);
+    }
+
+    &.show-error {
+      color: var(--error);
+      border-color: var(--error);
+    }
+  }
+}
