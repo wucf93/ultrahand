@@ -1,4 +1,7 @@
+import Logo from "@public/logo.png";
 import styles from "./style.module.less";
+
+console.log(Logo)
 
 function HomeSiderbarHeader() {
   return (
@@ -10,7 +13,7 @@ function HomeSiderbarHeader() {
         </div>
       </div>
       <div className={styles["home-siderbar-header-logo"]}>
-        <img src="/logo.png" height={70} width={70} />
+        <img src={Logo} height={48} width={48} />
       </div>
     </div>
   );
