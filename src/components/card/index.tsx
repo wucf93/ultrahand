@@ -25,6 +25,7 @@ const CardItem: FC<CardItemProps> = (props) => {
 
 export interface CardProps extends BaseProps {
   title?: React.ReactNode;
+  divider?: boolean;
   children:
     | ReactComponentElement<typeof CardItem>
     | Array<ReactComponentElement<typeof CardItem>>;
@@ -42,12 +43,12 @@ export const Card: CardPropsWrapper = (props) => {
     return childrens.map((element, index) => (
       <Fragment key={index}>
         {element}{" "}
-        {index < childrens.length - 1 && (
+        {props.divider && index < childrens.length - 1 && (
           <Divider className={styles["fedh-card-divider"]} />
         )}
       </Fragment>
     ));
-  }, [props.children]);
+  }, [props.children, props.divider]);
 
   return (
     <div

@@ -2,10 +2,11 @@ import Home from "./home";
 import { RouteObject, createHashRouter } from "react-router-dom";
 
 interface PageObject {
-  id: string,
+  id: string;
   name: string;
   path?: string;
   children?: Array<PageObject>;
+  icon?: React.ReactNode;
   Component?: RouteObject["Component"];
   lazy?: RouteObject["lazy"];
 }
@@ -13,21 +14,21 @@ interface PageObject {
 /** 显示在左侧菜单的页面 */
 export const pages: Array<PageObject> = [
   {
-    id: 'format',
+    id: "format",
     name: "格式化",
     children: [
       {
-        id: 'format-data',
+        id: "format-data",
         name: "时间格式化",
         path: "/format/date",
-        lazy: () => import('./pages/format/date')
+        lazy: () => import("./pages/format/date"),
       },
-      // {
-      //   id: 'format-json',
-      //   name: "JSON格式化",
-      //   path: "/format/json",
-      //   lazy: () => import('./pages/format/json')
-      // },
+      {
+        id: "format-json",
+        name: "JSON格式化",
+        path: "/format/json",
+        lazy: () => import("./pages/format/json"),
+      },
     ],
   },
 ];
@@ -36,21 +37,19 @@ export const pages: Array<PageObject> = [
 export const pageRoutes = (function getPageRoute(pages: Array<PageObject>) {
   return pages.reduce((routes, item) => {
     if (item.path) {
-      routes.push(item)
+      routes.push(item);
     }
     if (item.children) {
-      routes = [...routes, ...getPageRoute(item.children)]
+      routes = [...routes, ...getPageRoute(item.children)];
     }
-    return routes
-  }, [] as PageObject[])
-})(pages)
+    return routes;
+  }, [] as PageObject[]);
+})(pages);
 
 export const router = createHashRouter([
   {
     path: "/",
     Component: Home,
-    children: [
-      ...pageRoutes,
-    ]
+    children: [...pageRoutes],
   },
 ]);

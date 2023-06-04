@@ -4,7 +4,7 @@ import { RouterProvider } from "react-router-dom";
 import { ConfigProvider } from "antd";
 import { router } from "./router";
 import zhCN from "antd/locale/zh_CN";
-
+import 'antd/dist/reset.css';
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

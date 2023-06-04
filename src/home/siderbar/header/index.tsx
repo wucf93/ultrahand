@@ -1,7 +1,5 @@
-import Logo from "@public/logo.png";
+import Logo from "@/assets/logo.png";
 import styles from "./style.module.less";
-
-console.log(Logo)
 
 function HomeSiderbarHeader() {
   return (
