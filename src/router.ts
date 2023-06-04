@@ -1,5 +1,5 @@
 import Home from "./home";
-import { createBrowserRouter, RouteObject } from "react-router-dom";
+import { RouteObject, createHashRouter } from "react-router-dom";
 
 interface PageObject {
   id: string,
@@ -45,7 +45,7 @@ export const pageRoutes = (function getPageRoute(pages: Array<PageObject>) {
   }, [] as PageObject[])
 })(pages)
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     Component: Home,
