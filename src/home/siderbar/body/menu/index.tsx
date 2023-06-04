@@ -1,24 +1,29 @@
 import React, { FC } from "react";
+import { To, useNavigate } from "react-router-dom";
 import cx from "classnames";
 import styles from "./style.module.less";
 
 import type { BaseProps } from "@/components";
 
 export interface MenuItemProps extends BaseProps {
-  children?: React.ReactNode;
-}
-
-export interface MenuItemProps extends BaseProps {
+  to?: To;
+  active?: boolean;
   children?: React.ReactNode;
 }
 
 const MenuItem: FC<MenuItemProps> = (props) => {
+  const navigate = useNavigate();
   return (
     <div
-      className={cx(styles["home-siderbar-menu-item"], props.className)}
+      className={cx(
+        styles["home-siderbar-menu-item"],
+        { [styles["active"]]: props.active },
+        props.className
+      )}
       style={props.style}
+      onClick={() => props.to && navigate(props.to)}
     >
-      {props.children && <div>{props.children}</div>}
+      {props.children}
     </div>
   );
 };
