@@ -1,6 +1,8 @@
 import Logo from "@/assets/logo.png";
 import styles from "./style.module.less";
 
+console.log(Logo)
+
 function HomeSiderbarHeader() {
   return (
     <div className={styles["home-siderbar-header"]}>
