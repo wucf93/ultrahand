@@ -1,0 +1,45 @@
+.page-base {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+
+  &-section {
+    flex: 0 0 auto;
+    width: 220px;
+    border-right: 1px solid @colorBorderSecondary;
+    overflow: hidden;
+
+    &--title {
+      font-size: 16px;
+      font-weight: bold;
+      padding: 16px 12px;
+      border-bottom: 1px solid @colorBorderSecondary;
+    }
+
+    &--body {
+      padding: 12px;
+    }
+
+    &--item {
+      height: 50px;
+      padding: 0 8px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: @colorFillQuaternary;
+      }
+
+      &.active {
+        background-color: @colorPrimaryBg;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &-outlet {
+    flex: 1;
+    padding: 24px;
+  }
+}
