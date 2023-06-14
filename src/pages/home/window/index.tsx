@@ -1,13 +1,12 @@
 import { Outlet } from "react-router-dom";
-
 import styles from "./style.module.less";
 
-function HomeWindowBody() {
+function HomeWindow() {
   return (
-    <div className={styles["home-window-body"]}>
+    <div className={styles["home-window"]}>
       <Outlet />
     </div>
   );
 }
 
-export default HomeWindowBody;
+export default HomeWindow;

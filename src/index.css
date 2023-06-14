@@ -1,18 +1,8 @@
-:root {
-  color: #303030;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+@import url("antd/dist/reset.css");
 
-  --primary: #1d93ab;
-  --second: #f6e8c5;
-  --error: #ff4d4f;
-  --border: 1px solid #dedede;
-  --sidebar-width: 280px;
+:root {
+  --sidebar-width: 64px;
   --window-content-width: calc(100% - var(--sidebar-width));
-  --placeholder: rgba(0, 0, 0, 0.25);
 }
 
 body {
@@ -24,7 +14,4 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* user-select: none; */
-  touch-action: pan-x pan-y;
 }
