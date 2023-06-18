@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { Cell } from "@/components";
-import { Button, Input } from "antd";
+import { Input } from "antd";
 import Result from "./result";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import dayjs from "dayjs";
@@ -29,7 +29,7 @@ const TimesToTimetamp = () => {
           />
         ),
       }}
-      actionNode={<Button icon={<ArrowRightOutlined />} type="text" />}
+      actionNode={<ArrowRightOutlined />}
       rightNode={{
         title: "北京时间",
         children: <Result placeholder="格式化结果">{result}</Result>,

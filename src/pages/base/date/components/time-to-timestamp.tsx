@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { Cell } from "@/components";
-import { Button, DatePicker } from "antd";
+import { DatePicker } from "antd";
 import Result from "./result";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { Dayjs } from "dayjs";
@@ -27,7 +27,7 @@ const TimestampToTime = () => {
           />
         ),
       }}
-      actionNode={<Button icon={<ArrowRightOutlined />} type="text" />}
+      actionNode={<ArrowRightOutlined />}
       rightNode={{
         title: "时间戳（毫秒）",
         children: <Result placeholder="格式化结果">{result}</Result>,

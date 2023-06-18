@@ -46,6 +46,13 @@ export const pages: Array<RouteObject> = [
         icon: <CalendarFilled />,
         lazy: () => import("./pages/base/date"),
       },
+      {
+        id: "base-json",
+        name: "JSON工具",
+        path: "json",
+        icon: <CalendarFilled />,
+        lazy: () => import("./pages/base/json"),
+      },
     ],
   },
 ];

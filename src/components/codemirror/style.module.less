@@ -1,0 +1,22 @@
+.fedh-code {
+  width: 100%;
+  border: 1px solid @colorBorderSecondary;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &-title {
+    height: 28px;
+    line-height: 28px;
+    padding: 0 12px;
+    flex: 0 0 auto;
+    border-bottom: 1px solid @colorBorderSecondary;
+    background-color: @colorFillTertiary;
+  }
+
+  &-body {
+    flex: 1 0 none;
+    overflow-y: auto;
+  }
+}
