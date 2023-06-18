@@ -29,7 +29,7 @@ const TimesToTimetamp = () => {
           />
         ),
       }}
-      actionNode={<Button icon={<ArrowRightOutlined />} type="text" />}
+      actionNode={<ArrowRightOutlined />}
       rightNode={{
         title: "北京时间",
         children: <Result placeholder="格式化结果">{result}</Result>,

@@ -27,7 +27,7 @@ const TimestampToTime = () => {
           />
         ),
       }}
-      actionNode={<Button icon={<ArrowRightOutlined />} type="text" />}
+      actionNode={<ArrowRightOutlined />}
       rightNode={{
         title: "时间戳（毫秒）",
         children: <Result placeholder="格式化结果">{result}</Result>,
