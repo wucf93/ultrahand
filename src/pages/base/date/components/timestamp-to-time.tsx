@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { Cell } from "@/components";
-import { Button, Input } from "antd";
+import { Input } from "antd";
 import Result from "./result";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import dayjs from "dayjs";
