@@ -1,0 +1,29 @@
+.fedh-menu {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &-item {
+    padding:  8px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: @colorFillQuaternary;
+    }
+
+    &.active {
+      background-color: @colorPrimaryBg;
+      font-weight: bold;
+    }
+
+    &--icon {
+      margin-right: 8px;
+    }
+  }
+
+  &-empty {
+    margin-top: 360px;
+  }
+}

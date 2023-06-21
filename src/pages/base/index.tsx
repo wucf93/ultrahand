@@ -1,11 +1,10 @@
 import { useMemo } from "react";
 import { Outlet, useMatches, useNavigate } from "react-router-dom";
 import { isPageObject, PageObject, pages } from "@/router";
-import { Col, Row, Avatar } from "antd";
-import cx from "classnames";
+import { Menu, PageLayout } from "@/components";
 import styles from "./style.module.less";
 
-const Sections = () => {
+export function Component() {
   const [, tool, section] = useMatches();
   const navigate = useNavigate();
 
@@ -19,49 +18,36 @@ const Sections = () => {
 
   const sections = useMemo(
     () =>
-      toolInfo?.children?.filter((page) =>
-        isPageObject(page)
-      ) as Array<PageObject>,
+      (
+        toolInfo?.children?.filter((page) =>
+          isPageObject(page)
+        ) as Array<PageObject>
+      )?.map((page) => ({
+        key: page.id,
+        name: page.name,
+        value: page.path,
+        icon: page.icon,
+      })),
     [toolInfo?.children]
   );
 
   return (
-    <div className={styles["page-base-section"]}>
-      {/* 标题 */}
-      {toolInfo?.name && (
-        <div className={styles["page-base-section--title"]}>
-          {toolInfo?.name}
-        </div>
-      )}
-      <div className={styles["page-base-section--body"]}>
-        {sections.map((page) => (
-          <Row
-            key={page.id}
-            gutter={8}
-            className={cx(styles["page-base-section--item"], {
-              [styles["active"]]: page.id === section.id,
-            })}
-            align="middle"
-            onClick={() => page.path && navigate(page.path)}
-          >
-            <Col>
-              <Avatar>{page.icon}</Avatar>
-            </Col>
-            <Col>{page.name}</Col>
-          </Row>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export function Component() {
-  return (
-    <div className={styles["page-base"]}>
-      <Sections></Sections>
+    <PageLayout
+      title="基础工具"
+      className={styles["page-base"]}
+      sider={
+        <Menu
+          data={sections}
+          selectKey={section.id}
+          onSelect={(_, menu) =>
+            typeof menu?.value === "string" && navigate(menu.value)
+          }
+        />
+      }
+    >
       <div className={styles["page-base-outlet"]}>
         <Outlet />
       </div>
-    </div>
+    </PageLayout>
   );
 }

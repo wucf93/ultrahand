@@ -6,7 +6,7 @@ import {
   IndexRouteObject,
   NonIndexRouteObject,
 } from "react-router-dom";
-import { CalculatorFilled, CalendarFilled } from "@ant-design/icons";
+import { CalculatorFilled, AppstoreFilled } from "@ant-design/icons";
 
 export interface PageObject
   extends Omit<NonIndexRouteObject, "children" | "id"> {
@@ -43,17 +43,22 @@ export const pages: Array<RouteObject> = [
         id: "base-date",
         name: "日期工具",
         path: "date",
-        icon: <CalendarFilled />,
         lazy: () => import("./pages/base/date"),
       },
       {
         id: "base-json",
         name: "JSON工具",
         path: "json",
-        icon: <CalendarFilled />,
         lazy: () => import("./pages/base/json"),
       },
     ],
+  },
+  {
+    id: "app",
+    name: "应用",
+    path: "/app",
+    icon: <AppstoreFilled />,
+    lazy: () => import("./pages/app"),
   },
 ];
 

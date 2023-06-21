@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useMatches } from "react-router-dom";
+import { useMatches, useNavigate } from "react-router-dom";
 import { PageObject, isPageObject, pages } from "@/router";
 import { GithubFilled, SettingFilled } from "@ant-design/icons";
 import Tool from "./tool";
@@ -7,6 +7,7 @@ import styles from "./style.module.less";
 
 function HomeSidebar() {
   const [, tool] = useMatches();
+  const navigate = useNavigate();
   const tools = useMemo(
     () => pages.filter((page) => isPageObject(page)) as PageObject[],
     []
@@ -17,10 +18,11 @@ function HomeSidebar() {
       <div>
         {tools.map((page) => (
           <Tool
-            active={tool?.id === page.id}
+            key={page.id}
             icon={page.icon}
             tooltip={page.name}
-            key={page.id}
+            active={tool?.id === page.id}
+            onClick={() => page.path && navigate(page.path)}
           />
         ))}
       </div>
