@@ -28,7 +28,10 @@ function HomeSidebar() {
       </div>
 
       <div>
-        <Tool icon={<GithubFilled />} onClick={() => window.open()} />
+        <Tool
+          icon={<GithubFilled />}
+          onClick={() => window.open("https://github.com/wucf93/ultrahand")}
+        />
         <Tool icon={<SettingFilled />} tooltip="设置" />
       </div>
     </div>
